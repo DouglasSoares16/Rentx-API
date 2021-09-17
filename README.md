@@ -1,3 +1,25 @@
+# API Rentx | Aluguel de Carros
+
+<h3>API de ALuguel de Carros, desenvolvido durante o curso <b>Ignite Pro</b> da <b>Rocketseat</b>
+
+## 🚀 Tecnologias
+- TypeScript
+- Node
+- TypeOrm
+- JWT
+- BcryptJS
+- Multer
+- Tsyringe
+- Jest
+- Postgres
+
+<br>
+
+## 💻 Padrão utilizado
+- Arquitetura *SOLID*
+
+<br>
+
 *3 Pontos que umas aplicação irá ter*
 
 **RF** => Requisitos Funcionais <br>
