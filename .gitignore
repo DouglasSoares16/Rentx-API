@@ -1,0 +1,4 @@
+node_modules/
+notion.txt
+.vscode/
+tmp/*
