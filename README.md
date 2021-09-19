@@ -80,7 +80,6 @@
 
 **RF**
 * Deve ser possível fazer upload de imagens do carro
-* Deve ser possível listar todos os carros
 
 **RNF**
 * Utilizar o Multer para o upload
