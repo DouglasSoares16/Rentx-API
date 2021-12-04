@@ -4,7 +4,7 @@
     "host": "localhost",
     "username": "postgres",
     "password": "ignitepro",
-    "database": "postgres",
+    "database": "rentx",
     "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
     "entities": ["./src/modules/*/infra/typeorm/entities/*.ts"],
     "cli": {
