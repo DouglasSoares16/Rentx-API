@@ -1,4 +1,4 @@
-import { inject } from "tsyringe";
+import { inject, injectable } from "tsyringe";
 
 import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
@@ -6,6 +6,7 @@ import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsReposi
 import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 import { AppError } from "@shared/errors/AppError";
 
+@injectable()
 class DevolutionRentalUseCase {
     constructor(
         @inject("RentalsRepository")
