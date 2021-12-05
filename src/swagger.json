@@ -149,7 +149,9 @@
         },
         "/sessions": {
             "post": {
-                "tags": ["Sessions"],
+                "tags": [
+                    "Sessions"
+                ],
                 "summary": "Authentication user",
                 "description": "Authentication user",
                 "requestBody": {
@@ -181,7 +183,9 @@
         },
         "/cars": {
             "post": {
-                "tags": ["Cars"],
+                "tags": [
+                    "Cars"
+                ],
                 "summary": "Create a new car",
                 "description": "Create a new car",
                 "security": [
@@ -204,6 +208,54 @@
                     },
                     "400": {
                         "description": "Car Already exists!"
+                    }
+                }
+            }
+        },
+        "/cars/images/{id}": {
+            "post": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Upload images",
+                "description": "Upload images",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Car id",
+                        "require": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "images": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
                     }
                 }
             }
