@@ -17,15 +17,15 @@ class UsersTokensRepository implements IUsersTokensRepository {
         user_id,
         refresh_token,
     }: ICreateUserTokenDTO): Promise<UserTokens> {
-        const refresh = this.repository.create({
+        const userToken = this.repository.create({
             refresh_token,
             user_id,
             expires_date,
         });
 
-        await this.repository.save(refresh);
+        await this.repository.save(userToken);
 
-        return refresh;
+        return userToken;
     }
 }
 
