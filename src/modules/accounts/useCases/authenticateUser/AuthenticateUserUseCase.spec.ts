@@ -1,4 +1,3 @@
-import { ICreateUserDTO } from "@modules/accounts/dtos/ICreateUserDTO";
 import { UsersRepositoryInMemory } from "@modules/accounts/repositories/in-memory/UsersRepositoryInMemory";
 import { AppError } from "@shared/errors/AppError";
 
@@ -19,7 +18,7 @@ describe("Authenticate User", () => {
     });
 
     it("should be able to authenticate an user", async () => {
-        const user: ICreateUserDTO = {
+        const user = {
             driver_license: "000123",
             email: "test@gmail.com",
             password: "1234",
@@ -36,30 +35,29 @@ describe("Authenticate User", () => {
         expect(result).toHaveProperty("token");
     });
 
-    it("should not be able to authenticate an nonexistent user", () => {
-        expect(async () => {
-            await authenticateUserUseCase.execute({
+    it("should not be able to authenticate an nonexistent user", async () => {
+        await expect(
+            authenticateUserUseCase.execute({
                 email: "email@false.com",
                 password: "0000",
-            });
-        }).rejects.toBeInstanceOf(AppError);
+            })
+        ).rejects.toEqual(new AppError("Email or password incorrect!"));
     });
 
-    it("Should not be able to authenticate with incorrect password", () => {
-        expect(async () => {
-            const user: ICreateUserDTO = {
-                driver_license: "9999",
-                email: "email@gmail.com",
-                password: "1234",
-                name: "User Test Error",
-            };
+    it("Should not be able to authenticate with incorrect password", async () => {
+        const user = {
+            driver_license: "9999",
+            email: "email@gmail.com",
+            password: "1234",
+            name: "User Test Error",
+        };
 
-            await createUserUseCase.execute(user);
-
-            await authenticateUserUseCase.execute({
+        await createUserUseCase.execute(user);
+        await expect(
+            authenticateUserUseCase.execute({
                 email: "email@gmail.com",
                 password: "incorrect",
-            });
-        }).rejects.toBeInstanceOf(AppError);
+            })
+        ).rejects.toEqual(new AppError("Email or password incorrect!"));
     });
 });
