@@ -4,15 +4,15 @@ import { CreateSpecificationController } from "@modules/cars/useCases/createSpec
 import { ensureAdmin } from "@shared/infra/http/middlewares/ensureAdmin";
 import { ensureAuthenticated } from "@shared/infra/http/middlewares/ensureAuthenticated";
 
-const specificationsRouter = Router();
+const specificationsRoutes = Router();
 
 const createSpecificationController = new CreateSpecificationController();
 
-specificationsRouter.post(
+specificationsRoutes.post(
     "/",
     ensureAuthenticated,
     ensureAdmin,
     createSpecificationController.handle
 );
 
-export { specificationsRouter };
+export { specificationsRoutes };

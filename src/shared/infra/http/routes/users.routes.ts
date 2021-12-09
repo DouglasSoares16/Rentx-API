@@ -12,15 +12,15 @@ const uploadAvatar = multer(uploadConfig.upload("./tmp/avatar"));
 const createUserController = new CreateUserController();
 const updateUserAvatarController = new UpdateUserAvatarController();
 
-const userRouter = Router();
+const userRoutes = Router();
 
-userRouter.post("/", createUserController.handle);
+userRoutes.post("/", createUserController.handle);
 
-userRouter.patch(
+userRoutes.patch(
     "/avatar",
     ensureAuthenticated,
     uploadAvatar.single("avatar"),
     updateUserAvatarController.handle
 );
 
-export { userRouter };
+export { userRoutes };
