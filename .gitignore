@@ -1,4 +1,6 @@
 node_modules/
-notion.txt
 .vscode/
 tmp/*
+coverage/
+
+notion.txt
