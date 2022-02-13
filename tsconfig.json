@@ -3,6 +3,8 @@
         "target": "es5",
         "module": "commonjs",
         "baseUrl": "./src",
+        "rootDir": "./src",
+        "outDir": "./dist",
         "paths": {
             "@modules/*": [
                 "modules/*"
@@ -15,9 +17,6 @@
             ],
             "@errors/*": [
                 "errors/*"
-            ],
-            "@utils/*": [
-                "utils/*"
             ]
         },
         "esModuleInterop": true,
