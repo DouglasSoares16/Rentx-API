@@ -1,9 +1,11 @@
 node_modules/
 .vscode/
-tmp/*
 coverage/
 dist/
 
-.env
+tmp/*
+!tmp/.gitkeep
 
+.env
+ormconfig.json
 notion.txt
