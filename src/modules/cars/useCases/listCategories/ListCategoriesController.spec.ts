@@ -8,7 +8,7 @@ import createConnection from "@shared/infra/typeorm/connection";
 
 let connection: Connection;
 
-describe("Create Category Controller", () => {
+describe("List Categories Controller", () => {
     beforeAll(async () => {
         connection = await createConnection();
         await connection.runMigrations();
